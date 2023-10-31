@@ -2,7 +2,7 @@ extends Node
 
 @export var mob_scene: PackedScene
 
-func ready():
+func _ready():
 	$UserInterface/Retry.hide()
 
 

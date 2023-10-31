@@ -6,7 +6,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_bw012"]
 size = Vector3(1.40592, 0.396594, 1.78789)
 
-[node name="Mob" type="CharacterBody3D"]
+[node name="Mob" type="CharacterBody3D" groups=["mob"]]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_48ic6")
 
 [node name="Pivot" type="Node3D" parent="."]

@@ -20,3 +20,5 @@ shape = SubResource("BoxShape3D_bw012")
 [node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 aabb = AABB(-1.15714, -1.18601, -2, 2.31428, 1.37202, 4)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler3D" to="." method="_on_visible_on_screen_enabler_3d_screen_exited"]

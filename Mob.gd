@@ -14,3 +14,7 @@ func initialize(start_pos, player_pos):
 	velocity = Vector3.FORWARD * random_speed
 	velocity = velocity.rotated(Vector3.UP, rotation.y)
 
+
+
+func _on_visible_on_screen_enabler_3d_screen_exited():
+	queue_free()

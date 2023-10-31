@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c27eps1qynwwe"]
+[gd_scene load_steps=13 format=3 uid="uid://c27eps1qynwwe"]
 
 [ext_resource type="PackedScene" uid="uid://bnhqb21av6484" path="res://player.tscn" id="1_766r5"]
 [ext_resource type="Script" path="res://main.gd" id="1_rwqqt"]
@@ -9,7 +9,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_beelo"]
 size = Vector3(60, 2, 60)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfa05"]
+albedo_color = Color(0.462745, 0.65098, 0.784314, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_xmux4"]
+material = SubResource("StandardMaterial3D_lfa05")
 size = Vector3(60, 2, 60)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4dyo"]
@@ -45,8 +49,10 @@ shape = SubResource("BoxShape3D_beelo")
 mesh = SubResource("BoxMesh_xmux4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.311373, 0.950288, 0, -0.950288, -0.311373, 0, 17, 0)
+transform = Transform3D(0.716206, -0.429352, 0.550187, 0.161663, 0.868984, 0.467689, -0.678907, -0.246017, 0.691782, 20.3732, 22.5061, 9)
 shadow_enabled = true
+shadow_transmittance_bias = -0.255
+shadow_opacity = 0.62
 
 [node name="Player" parent="." instance=ExtResource("1_766r5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -55,7 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(0.912677, -0.351424, 0.208619, 0.0815198, 0.656756, 0.749685, -0.400468, -0.667214, 0.628054, 2.28023, 11.6046, 8.72462)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
+transform = Transform3D(1, -2.98023e-08, -2.98023e-07, 0, 1, -2.98023e-08, 2.98023e-07, -5.96046e-08, 1, 0.237425, -0.646312, 16.8726)
 projection = 1
 size = 19.0
 
@@ -97,16 +103,21 @@ grow_vertical = 2
 theme = SubResource("Theme_kf3ji")
 
 [node name="ScoreLabel" type="Label" parent="UserInterface"]
-layout_mode = 0
-offset_left = 210.0
-offset_top = 68.0
-offset_right = 271.0
-offset_bottom = 94.0
-theme_override_colors/font_color = Color(0, 0.627451, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_right = 55.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.854902, 0.854902, 0, 1)
+theme_override_fonts/font = ExtResource("4_rtd61")
 text = "Score: 0"
 script = ExtResource("5_hina4")
 
 [node name="Retry" type="ColorRect" parent="UserInterface"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
